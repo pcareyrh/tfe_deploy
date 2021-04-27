@@ -8,8 +8,8 @@ resource "azurerm_postgresql_server" "pcarey-ptfe-psql" {
   location            = var.location
   resource_group_name = var.resource_group_name
 
-  administrator_login          = "psqladmin"
-  administrator_login_password = var.pgpass
+  #administrator_login          = "psqladmin"
+  #administrator_login_password = var.pgpass
 
   sku_name   = "GP_Gen5_4"
   version    = "11"

@@ -86,7 +86,6 @@ variable "vm_name" {
 
 variable "pgpass" {
   type = string
-  default = ""
   sensitive = true
 }
 
