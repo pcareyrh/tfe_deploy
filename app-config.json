@@ -1,0 +1,112 @@
+{
+    "aws_access_key_id": {},
+    "aws_instance_profile": {
+        "value": "0"
+    },
+    "aws_secret_access_key": {},
+    "azure_account_key": {
+        "value": ""
+    },
+    "azure_account_name": {
+        "value": ""
+    },
+    "azure_container": {
+        "value": ""
+    },
+    "azure_endpoint": {
+        "value": ""
+    },
+    "backup_token": {
+        "value": ""
+    },
+    "ca_certs": {},
+    "capacity_concurrency": {
+        "value": "10"
+    },
+    "capacity_memory": {
+        "value": "512"
+    },
+    "custom_image_tag": {
+        "value": "hashicorp/build-worker:now"
+    },
+    "disk_path": {},
+    "enable_active_active": {
+        "value": "0"
+    },
+    "enable_metrics_collection": {
+        "value": "0"
+    },
+    "enc_password": {
+        "value": ""
+    },
+    "extern_vault_addr": {},
+    "extern_vault_enable": {
+        "value": "0"
+    },
+    "extern_vault_path": {},
+    "extern_vault_propagate": {},
+    "extern_vault_role_id": {},
+    "extern_vault_secret_id": {},
+    "extern_vault_token_renew": {},
+    "extra_no_proxy": {},
+    "force_tls": {
+        "value": "0"
+    },
+    "gcs_bucket": {},
+    "gcs_credentials": {
+        "value": "{}"
+    },
+    "gcs_project": {},
+    "hairpin_addressing": {
+        "value": "0"
+    },
+    "hostname": {
+        "value": ""
+    },
+    "iact_subnet_list": {},
+    "iact_subnet_time_limit": {
+        "value": "60"
+    },
+    "installation_type": {
+        "value": "production"
+    },
+    "pg_dbname": {
+        "value": "hashicorp"
+    },
+    "pg_extra_params": {
+        "value": "sslmode=require"
+    },
+    "pg_netloc": {
+        "value": "10.0.2.6"
+    },
+    "pg_password": {
+        "value": ""
+    },
+    "pg_user": {
+        "value": ""
+    },
+    "placement": {
+        "value": "placement_azure"
+    },
+    "production_type": {
+        "value": "external"
+    },
+    "redis_host": {},
+    "redis_pass": {
+        "value": ""
+    },
+    "redis_port": {},
+    "redis_use_password_auth": {},
+    "redis_use_tls": {},
+    "s3_bucket": {},
+    "s3_endpoint": {},
+    "s3_region": {},
+    "s3_sse": {},
+    "s3_sse_kms_key_id": {},
+    "tbw_image": {
+        "value": "default_image"
+    },
+    "tls_vers": {
+        "value": "tls_1_2_tls_1_3"
+    }
+}

@@ -1,0 +1,46 @@
+#resource "tls_private_key" "example_ssh" {
+  #algorithm = "RSA"
+  #rsa_bits = 4096
+#}
+
+#output "tls_private_key" { value = tls_private_key.example_ssh.private_key_pem }
+
+resource "azurerm_linux_virtual_machine" "pcarey-vm" {
+    name                  = var.vm_name
+    location              = var.location
+    resource_group_name   = azurerm_resource_group.pcarey-rg.name
+    network_interface_ids = [azurerm_network_interface.pcarey-nic.id]
+    size                  = "Standard_D4_v3"
+    
+
+    os_disk {
+        name              = "pcareyOsDisk"
+        caching           = "ReadWrite"
+        storage_account_type = "Standard_LRS"
+    }
+
+    source_image_reference {
+        publisher = "Canonical"
+        offer     = "UbuntuServer"
+        sku       = "18.04-LTS"
+        version   = "latest"
+    }
+##    source_image_id = "/subscriptions/14692f20-9428-451b-8298-102ed4e39c2a/resourceGroups/pcarey-resources/providers/Microsoft.Compute/images/pcarey-centos-8-20210415042701"
+
+    #computer_name  = "myvm"
+    admin_username = "patrick"
+    disable_password_authentication = true
+
+    admin_ssh_key {
+        username       = "patrick"
+        #public_key     = tls_private_key.example_ssh.public_key_openssh
+        public_key = file("/Users/patrick/.ssh/id_rsa.pub")
+    }
+
+    boot_diagnostics {
+        storage_account_uri = azurerm_storage_account.pcarey-storage.primary_blob_endpoint
+    }
+
+    tags = local.common_tags
+}
+
