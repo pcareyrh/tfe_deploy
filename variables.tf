@@ -84,9 +84,9 @@ variable "vm_name" {
   default = "pcarey-basic-vm"
 }
 
-variable "pgpass" {
+variable "db_user" {
   type = string
-  sensitive = true
+  default = "pgadmin"
 }
 
 variable "db_name" {
@@ -102,10 +102,14 @@ variable "vm_sku" {
 variable "vm_admin_username" {
   type = string
   default = "patrick"
-  sensitive = true
 }
 
 variable "vm_count" {
   type = number
   default = 1
+}
+
+variable "tfe_key" {
+  type = string
+  default = ""
 }

@@ -15,7 +15,7 @@ output "database_server_fqdn" {
 }
 
 output "database_user" {
-  value = var.database_user
+  value = var.db_user
 }
 
 output "database_password" {
