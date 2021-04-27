@@ -111,5 +111,4 @@ variable "vm_count" {
 
 variable "tfe_key" {
   type = string
-  default = ""
 }
