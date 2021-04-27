@@ -27,7 +27,7 @@ output "database_name" {
 }
 
 output "load_balancer_ip" {
-  value = data.azurerm_public_ip.pcarey-publicip.ip_address
+  value = azurerm_public_ip.pcarey-publicip.ip_address
 }
 
 # VM
