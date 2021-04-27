@@ -17,6 +17,7 @@ resource "azurerm_storage_account" "pcarey-storage" {
   }
 
   tags  = local.common_tags
+  depends_on = [azurerm_resource_group.pcarey-rg]
 }
 
 resource "azurerm_storage_container" "pcarey-storage-container" {

@@ -43,5 +43,5 @@ resource "azurerm_linux_virtual_machine_scale_set" "pcarey-vmss" {
   }
 
   tags = local.common_tags
-
+  depends_on = [azurerm_resource_group.pcarey-rg]
 }

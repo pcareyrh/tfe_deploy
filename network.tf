@@ -5,6 +5,7 @@ resource "azurerm_virtual_network" "pcarey-vnet" {
     resource_group_name = var.resource_group_name
 
     tags = local.common_tags
+    depends_on = [azurerm_resource_group.pcarey-rg]
 }
 
 resource "azurerm_subnet" "pcarey-subnet" {
@@ -23,6 +24,7 @@ resource "azurerm_public_ip" "pcarey-publicip" {
     allocation_method            = "Static"
 
     tags = local.common_tags
+    depends_on = [azurerm_resource_group.pcarey-rg, azurerm_virtual_network.pcarey-vnet]
 }
 
 resource "azurerm_private_endpoint" "example" {
@@ -50,6 +52,7 @@ resource "azurerm_lb" "pcarey-tfe-lb" {
   }
 
   tags = local.common_tags
+  depends_on = [azurerm_resource_group.pcarey-rg, azurerm_virtual_network.pcarey-vnet]
 }
 
 resource "azurerm_lb_backend_address_pool" "pcarey-lb-backend" {

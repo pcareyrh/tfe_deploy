@@ -27,6 +27,7 @@ resource "azurerm_postgresql_server" "pcarey-ptfe-psql" {
   ssl_minimal_tls_version_enforced = "TLS1_2"
 
   tags = local.common_tags
+  depends_on = [azurerm_resource_group.pcarey-rg]
 
 }
 
