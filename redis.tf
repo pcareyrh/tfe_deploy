@@ -3,7 +3,7 @@
 resource "azurerm_redis_cache" "pcarey-redis-tfe" {
   name                = "pcarey-redis-tfe"
   location            = var.location
-  resource_group_name = var.name
+  resource_group_name = var.resource_group_name
   capacity            = 3
   family              = "C"
   sku_name            = "Standard"
