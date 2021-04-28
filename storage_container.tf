@@ -20,8 +20,8 @@ resource "azurerm_storage_account" "pcarey-storage" {
   depends_on = [azurerm_resource_group.pcarey-rg]
 }
 
-resource "azurerm_storage_container" "pcarey-storage-container" {
-  name                  = "pcarey-container"
-  storage_account_name  = azurerm_storage_account.pcarey-storage.name
-  container_access_type = "private"
-}
+#resource "azurerm_storage_container" "pcarey-storage-container" {
+#  name                  = "pcarey-container"
+#  storage_account_name  = azurerm_storage_account.pcarey-storage.name
+#  container_access_type = "private"
+#}
