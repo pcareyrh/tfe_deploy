@@ -106,7 +106,7 @@ variable "vm_admin_username" {
 
 variable "vm_count" {
   type = number
-  default = 1
+  default = 2
 }
 
 variable "tfe_key" {
