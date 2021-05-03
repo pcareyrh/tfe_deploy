@@ -45,13 +45,13 @@ resource "tls_private_key" "tls_tfe_key" {
 
   # Store the certificate's private key in a file.
   provisioner "local-exec" {
-    command = "echo '${tls_private_key.tfe_key.private_key_pem}' > '${var.private_key_file_path}'"
+    command = "echo '${tls_private_key.tls_tfe_key.private_key_pem}' > '${var.private_key_file_path}'"
   }
 }
 
 resource "tls_cert_request" "tfe_csr" {
-  key_algorithm   = tls_private_key.tfe_key.algorithm
-  private_key_pem = tls_private_key.tfe_key.private_key_pem
+  key_algorithm   = tls_private_key.tls_tfe_key.algorithm
+  private_key_pem = tls_private_key.tls_tfe_key.private_key_pem
 
   dns_names    = ["tfe.pcarey.xyz"]
 

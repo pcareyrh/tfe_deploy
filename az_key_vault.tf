@@ -61,5 +61,5 @@ resource "azurerm_key_vault" "pcarey_tfe_kv" {
     ]
   }
 
-  tags = var.tags
+  tags = local.common_tags
 }
