@@ -109,7 +109,7 @@ variable "vm_count" {
   default = 2
 }
 
-variable "ssh_tfe_key" {
+variable "tfe_key" {
   type = string
 }
 

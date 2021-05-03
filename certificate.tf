@@ -39,7 +39,7 @@ resource "tls_self_signed_cert" "ca_tfe_crt" {
 # CREATE A TLS CERTIFICATE SIGNED USING THE CA CERTIFICATE
 # ---------------------------------------------------------------------------------------------------------------------
 
-resource "tls_private_key" "tfe_key" {
+resource "tls_private_key" "tls_tfe_key" {
   algorithm   = "RSA"
   rsa_bits    = "2048"
 
