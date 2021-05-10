@@ -49,7 +49,7 @@ resource "azurerm_private_endpoint" "priv-endpoint-redis" {
 
   private_service_connection {
     name                           = "pcarey-redis-privateserviceconnection"
-    private_connection_resource_id = azurerm_postgresql_server.pcarey-redis-tfe.id
+    private_connection_resource_id = azurerm_redis_cache.pcarey-redis-tfe.id
 #    subresource_names              = [ "postgresqlServer" ]
     is_manual_connection           = false
   }
