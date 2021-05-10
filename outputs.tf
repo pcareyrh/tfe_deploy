@@ -46,6 +46,6 @@ output "redis_ssl_port" {
   value = azurerm_redis_cache.pcarey-redis-tfe.ssl_port
 }
 
-output "redis_pass" {
+output "redis_log" {
   value = azurerm_redis_cache.pcarey-redis-tfe.primary_access_key
 }
