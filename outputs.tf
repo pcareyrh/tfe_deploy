@@ -46,7 +46,7 @@ output "redis_ssl_port" {
   value = azurerm_redis_cache.pcarey-redis-tfe.ssl_port
 }
 
-output "redis_pass" {
-  value = azurerm_redis_cache.pcarey-redis-tfe.primary_access_key
-  sensitive = false
-}
+# Can't output sensitive data
+# output "redis_pass" {
+#  value = azurerm_redis_cache.pcarey-redis-tfe.primary_access_key
+# }
