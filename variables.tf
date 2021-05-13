@@ -160,18 +160,8 @@ variable "friendly_name_prefix" {
   description = "Name prefix used for resources"
 }
 
-variable "active_active" {
-  default     = true
-  type        = bool
-  description = "True if TFE running in active-active configuration"
-}
 variable "network_allow_range" {
   default     = "*"
   type        = string
   description = "(Optional) Network range to allow access to TFE"
-}
-variable "network_frontend_subnet_cidr" {
-  default     = "10.0.0.0/20"
-  type        = string
-  description = "(Optional) Subnet CIDR range for frontend"
 }
