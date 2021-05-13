@@ -5,7 +5,7 @@ locals {
   # Application Gateway
   # -------------------
   gateway_ip_configuration_name          = "tfe-ag-gateway-ip-config"
-  trusted_root_certificate_name          = "${var.friendly_name_prefix}-trusted-root-cert"
+  trusted_root_certificate_name          = "pcarey-trusted-root-cert"
   frontend_ip_configuration_name_public  = "tfe-ag-frontend-ip-config-pub"
   frontend_ip_configuration_name_private = "tfe-ag-frontend-ip-config-priv"
   frontend_ip_configuration_name         = var.publicip_name
@@ -22,7 +22,7 @@ locals {
 # Application Gateway
 # -------------------
 resource "azurerm_application_gateway" "tfe_ag" {
-  name                = "${var.friendly_name_prefix}-ag"
+  name                = "pcarey-ag"
   resource_group_name = var.resource_group_name
   location            = var.location
 
@@ -41,7 +41,8 @@ resource "azurerm_application_gateway" "tfe_ag" {
 
   gateway_ip_configuration {
     name      = local.gateway_ip_configuration_name
-    subnet_id = var.network_frontend_subnet_id
+    #subnet_id = var.network_frontend_subnet_id
+    subnet_id = azurerm_subnet.tfe_network_frontend_subnet.id
   }
 
 #  ssl_certificate {

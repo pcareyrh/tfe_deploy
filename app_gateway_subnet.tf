@@ -1,7 +1,7 @@
 # Public subnet
 # -------------
 resource "azurerm_subnet" "tfe_network_frontend_subnet" {
-  name                = "${var.friendly_name_prefix}-frontend-subnet"
+  name                = "pcarey-frontend-subnet"
   resource_group_name = var.resource_group_name
 
   address_prefixes     = [var.network_frontend_subnet_cidr]
@@ -10,7 +10,7 @@ resource "azurerm_subnet" "tfe_network_frontend_subnet" {
 
 # Public subnet network securtiy group
 resource "azurerm_network_security_group" "tfe_network_frontend_nsg" {
-  name                = "${var.friendly_name_prefix}-frontend-nsg"
+  name                = "pcarey-frontend-nsg"
   location            = var.location
   resource_group_name = var.resource_group_name
 
