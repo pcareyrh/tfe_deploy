@@ -136,10 +136,10 @@ variable "active_active" {
   description = "True if TFE running in active-active configuration"
 }
 
-variable "network_frontend_subnet_id" {
-  type        = string
-  description = "(Required) Azure resource ID of frontend subnet for LB/AG"
-}
+#variable "network_frontend_subnet_id" {
+  #type        = string
+  #description = "(Required) Azure resource ID of frontend subnet for LB/AG"
+#}
 
 variable "network_private_ip" {
   default     = ""
@@ -147,11 +147,11 @@ variable "network_private_ip" {
   description = "(optional) Private IP address to use for LB/AG endpoint"
 }
 
-#variable "network_frontend_subnet_cidr" {
-#  default     = "10.0.0.0/20"
-  #type        = string
-  #description = "(Optional) Public subnet CIDR range for Bastion"
-#}
+variable "network_frontend_subnet_cidr" {
+  default     = "10.0.0.0/20"
+  type        = string
+  description = "(Optional) Public subnet CIDR range for Bastion"
+}
 
 
 variable "network_allow_range" {
