@@ -1,7 +1,7 @@
 data "azurerm_client_config" "current" {}
 
-resource "azurerm_key_vault" "pcarey_tfe_kv" {
-  name                        = "pcarey_tfe_kv"
+resource "azurerm_key_vault" "pcarey-tfe-kv" {
+  name                        = "pcarey-tfe-kv"
   location                    = var.location
   resource_group_name         = var.resource_group_name
   enabled_for_disk_encryption = true
@@ -61,5 +61,5 @@ resource "azurerm_key_vault" "pcarey_tfe_kv" {
     ]
   }
 
-  tags = var.tags
+  tags = local.common_tags
 }
