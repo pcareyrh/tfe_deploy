@@ -1,5 +1,16 @@
 # Public subnet
 # -------------
+resource "azurerm_virtual_network" "tfe_network" {
+  name                = "pcarey-fe-network"
+  location            = var.location
+  resource_group_name = var.resource_group_name
+  address_space       = ["10.0.32.0/20"]
+  
+  tags = local.common_tags
+  depends_on = [azurerm_resource_group.pcarey-rg]
+  
+}
+
 resource "azurerm_subnet" "tfe_network_frontend_subnet" {
   name                = "pcarey-frontend-subnet"
   resource_group_name = var.resource_group_name
@@ -80,7 +91,7 @@ resource "azurerm_network_security_group" "tfe_network_frontend_nsg" {
     }
   }
 
-  tags = var.tags
+  tags = local.common_tags
 }
 
 # Public subnet network securtiy group association
