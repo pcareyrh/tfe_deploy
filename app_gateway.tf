@@ -76,7 +76,6 @@ resource "azurerm_application_gateway" "tfe_ag" {
     frontend_ip_configuration_name = local.frontend_ip_configuration_name
     frontend_port_name             = local.app_frontend_port_name
     protocol                       = "Https"
-    ssl_certificate_name           = var.certificate_name
   }
 
   backend_http_settings {
@@ -86,9 +85,7 @@ resource "azurerm_application_gateway" "tfe_ag" {
     protocol              = "Https"
     port                  = 443
     request_timeout       = 60
-    host_name             = var.fqdn
-
-    trusted_root_certificate_names = [local.trusted_root_certificate_name]
+    host_name             = "tfe.pcarey.xyz"
   }
 
   request_routing_rule {
