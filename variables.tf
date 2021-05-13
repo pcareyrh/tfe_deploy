@@ -111,6 +111,7 @@ variable "vm_count" {
 
 variable "tfe_key" {
   type = string
+  default = "test"
 }
 
 
@@ -127,4 +128,50 @@ variable "public_key_file_path" {
 variable "private_key_file_path" {
   description = "Write the PEM-encoded certificate private key to this path (e.g. /etc/tls/vault.key.pem)."
   default = "tls/vault.key.pem" 
+}
+
+variable "active_active" {
+  default     = true
+  type        = bool
+  description = "True if TFE running in active-active configuration"
+}
+
+variable "network_frontend_subnet_id" {
+  type        = string
+  description = "(Required) Azure resource ID of frontend subnet for LB/AG"
+}
+
+variable "network_private_ip" {
+  default     = ""
+  type        = string
+  description = "(optional) Private IP address to use for LB/AG endpoint"
+}
+
+variable "network_frontend_subnet_cidr" {
+  default     = "10.0.0.0/20"
+  type        = string
+  description = "(Optional) Public subnet CIDR range for Bastion"
+}
+
+# General
+# -------
+variable "friendly_name_prefix" {
+  type        = string
+  description = "Name prefix used for resources"
+}
+
+variable "active_active" {
+  default     = true
+  type        = bool
+  description = "True if TFE running in active-active configuration"
+}
+variable "network_allow_range" {
+  default     = "*"
+  type        = string
+  description = "(Optional) Network range to allow access to TFE"
+}
+variable "network_frontend_subnet_cidr" {
+  default     = "10.0.0.0/20"
+  type        = string
+  description = "(Optional) Subnet CIDR range for frontend"
 }
