@@ -86,9 +86,6 @@ resource "azurerm_network_security_group" "tfe_network_frontend_nsg" {
     }
   }
 
-  tags = local.common_tags
-}
-
 # Public subnet network securtiy group association
 resource "azurerm_subnet_network_security_group_association" "tfe_network_frontend_nsg_association" {
   subnet_id                 = azurerm_subnet.tfe_network_frontend_subnet.id
