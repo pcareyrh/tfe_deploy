@@ -41,8 +41,7 @@ resource "azurerm_network_security_group" "tfe_network_frontend_nsg" {
   }
 
   # Allow inbound TFE Console, only used for standalone deployment
-  dynamic "security_rule" {
-    content {
+  security_rule {
       name      = "allow-frontend-inbound-console"
       priority  = 150
       direction = "Inbound"
@@ -58,8 +57,7 @@ resource "azurerm_network_security_group" "tfe_network_frontend_nsg" {
   }
 
   # Allow Application Gateway traffic
-  dynamic "security_rule" {
-    content {
+  security_rule {
       name      = "allow-frontend-inbound-ag"
       priority  = 250
       direction = "Inbound"
@@ -75,8 +73,7 @@ resource "azurerm_network_security_group" "tfe_network_frontend_nsg" {
   }
 
   # Allow Azure Load Balancer when private
-  dynamic "security_rule" {
-    content {
+  security_rule {
       name      = "allow-frontend-inbound-ag-lb"
       priority  = 300
       direction = "Inbound"
