@@ -54,7 +54,6 @@ resource "azurerm_network_security_group" "tfe_network_frontend_nsg" {
       destination_port_range     = "8800"
       destination_address_prefix = var.network_frontend_subnet_cidr
     }
-  }
 
   # Allow Application Gateway traffic
   security_rule {
@@ -70,7 +69,6 @@ resource "azurerm_network_security_group" "tfe_network_frontend_nsg" {
       destination_port_range     = "65200-65535"
       destination_address_prefix = "*"
     }
-  }
 
   # Allow Azure Load Balancer when private
   security_rule {
