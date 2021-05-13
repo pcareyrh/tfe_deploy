@@ -169,6 +169,18 @@ resource "azurerm_network_security_group" "pcarey-basic-sg" {
         destination_address_prefix = "*"
     }
 
+    security_rule {
+        name                       = "tfe_comms"
+        priority                   = 1010
+        direction                  = "Inbound"
+        access                     = "Allow"
+        protocol                   = "*"
+        source_port_range          = "*"
+        destination_port_range     = "65200-65535"
+        source_address_prefix      = "*"
+        destination_address_prefix = "*"
+    }
+
     tags = local.common_tags
     depends_on = [azurerm_resource_group.pcarey-rg, azurerm_virtual_network.pcarey-vnet]
 }
