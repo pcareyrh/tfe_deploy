@@ -16,7 +16,8 @@ resource "azurerm_linux_virtual_machine_scale_set" "pcarey-vmss" {
 
   source_image_reference {
     publisher = "Canonical"
-    offer     = "UbuntuServer"
+    #offer     = "UbuntuServer"
+    offer     = "0001-com-ubuntu-server-focal"
     sku       = "20_04-lts"
     version   = "latest"
   }
