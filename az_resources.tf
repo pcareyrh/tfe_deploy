@@ -31,6 +31,13 @@ terraform {
       version = ">= 2.26"
     }
   }
+  #  backend "remote" {
+  #    organization = "pcarey-org"
+
+  #    workspaces {
+  #      name = "state-migration"
+  #    }
+  #  }
 }
 
 provider "azurerm" {
