@@ -35,3 +35,18 @@ output "load_balancer_ip" {
 output "instance_user_name" {
   value = var.vm_admin_username
 }
+
+# Redis
+# -- 
+output "redis_hostname" {
+  value = azurerm_redis_cache.pcarey-redis-tfe.hostname
+}
+
+output "redis_ssl_port" {
+  value = azurerm_redis_cache.pcarey-redis-tfe.ssl_port
+}
+
+# Can't output sensitive data
+# output "redis_pass" {
+#  value = azurerm_redis_cache.pcarey-redis-tfe.primary_access_key
+# }

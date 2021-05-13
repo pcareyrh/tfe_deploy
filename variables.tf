@@ -106,10 +106,10 @@ variable "vm_admin_username" {
 
 variable "vm_count" {
   type = number
-  default = 2
+  default = 1
 }
 
-variable "ssh_tfe_key" {
+variable "tfe_key" {
   type = string
   default = "test"
 }

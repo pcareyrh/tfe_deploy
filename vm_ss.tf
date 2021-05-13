@@ -10,14 +10,15 @@ resource "azurerm_linux_virtual_machine_scale_set" "pcarey-vmss" {
 
   admin_ssh_key {
     username   = var.vm_admin_username
-    #    public_key = var.ssh_tfe_key
-    public_key = file("~/.ssh/id_rsa.pub")
+    public_key = var.tfe_key
+#    public_key = file("~/.ssh/id_rsa.pub")
   }
 
   source_image_reference {
     publisher = "Canonical"
-    offer     = "UbuntuServer"
-    sku       = "18.04-LTS"
+    #offer     = "UbuntuServer"
+    offer     = "0001-com-ubuntu-server-focal"
+    sku       = "20_04-lts"
     version   = "latest"
   }
 

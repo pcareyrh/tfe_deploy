@@ -27,7 +27,7 @@ resource "azurerm_public_ip" "pcarey-publicip" {
     depends_on = [azurerm_resource_group.pcarey-rg, azurerm_virtual_network.pcarey-vnet]
 }
 
-resource "azurerm_private_endpoint" "example" {
+resource "azurerm_private_endpoint" "priv-endpoint-psql" {
   name                = "pcarey-psql-priv-endpoint"
   location            = var.location
   resource_group_name = var.resource_group_name
@@ -37,6 +37,20 @@ resource "azurerm_private_endpoint" "example" {
     name                           = "pcarey-privateserviceconnection"
     private_connection_resource_id = azurerm_postgresql_server.pcarey-ptfe-psql.id
     subresource_names              = [ "postgresqlServer" ]
+    is_manual_connection           = false
+  }
+}
+
+resource "azurerm_private_endpoint" "priv-endpoint-redis" {
+  name                = "pcarey-redis-priv-endpoint"
+  location            = var.location
+  resource_group_name = var.resource_group_name
+  subnet_id           = azurerm_subnet.pcarey-subnet.id
+
+  private_service_connection {
+    name                           = "pcarey-redis-privateserviceconnection"
+    private_connection_resource_id = azurerm_redis_cache.pcarey-redis-tfe.id
+    subresource_names              = [ "redisCache" ]
     is_manual_connection           = false
   }
 }
@@ -151,6 +165,18 @@ resource "azurerm_network_security_group" "pcarey-basic-sg" {
         protocol                   = "Tcp"
         source_port_range          = "*"
         destination_port_range     = "8800"
+        source_address_prefix      = "*"
+        destination_address_prefix = "*"
+    }
+
+    security_rule {
+        name                       = "tfe_comms"
+        priority                   = 1010
+        direction                  = "Inbound"
+        access                     = "Allow"
+        protocol                   = "*"
+        source_port_range          = "*"
+        destination_port_range     = "65200-65535"
         source_address_prefix      = "*"
         destination_address_prefix = "*"
     }

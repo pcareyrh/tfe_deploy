@@ -39,19 +39,19 @@ resource "tls_self_signed_cert" "ca_tfe_crt" {
 # CREATE A TLS CERTIFICATE SIGNED USING THE CA CERTIFICATE
 # ---------------------------------------------------------------------------------------------------------------------
 
-resource "tls_private_key" "tfe_key" {
+resource "tls_private_key" "tls_tfe_key" {
   algorithm   = "RSA"
   rsa_bits    = "2048"
 
   # Store the certificate's private key in a file.
   provisioner "local-exec" {
-    command = "echo '${tls_private_key.tfe_key.private_key_pem}' > '${var.private_key_file_path}'"
+    command = "echo '${tls_private_key.tls_tfe_key.private_key_pem}' > '${var.private_key_file_path}'"
   }
 }
 
 resource "tls_cert_request" "tfe_csr" {
-  key_algorithm   = tls_private_key.tfe_key.algorithm
-  private_key_pem = tls_private_key.tfe_key.private_key_pem
+  key_algorithm   = tls_private_key.tls_tfe_key.algorithm
+  private_key_pem = tls_private_key.tls_tfe_key.private_key_pem
 
   dns_names    = ["tfe.pcarey.xyz"]
 
